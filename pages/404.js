@@ -1,0 +1,35 @@
+import Link from 'next/link'
+import React from 'react'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+export default function NotFound() {
+    const router = useRouter()
+
+    useEffect(() => {
+        setTimeout(() => {
+            router.push('/')
+
+        }, 2000)
+    }, [])
+
+  return (
+    <div className='not-found'>
+      <h1>404</h1>
+      <h2>Ooops! That page cannot be found:</h2>
+      <p>Redirecting to the <Link href='/'>HomePage</Link> for more marmite goodness..</p>
+    
+    <style jsx>{`
+    .not-found{
+        background: #fff;
+        padding: 30px;
+        box-shadow: 5px 3px 5px rgba(0,0,0,0.1);
+        transform: rotateZ(-1deg);}
+        h1{
+            font-size: 2em
+        }
+    }`}</style>
+    </div>
+  )
+}
+
